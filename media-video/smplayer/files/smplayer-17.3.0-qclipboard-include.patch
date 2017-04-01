@@ -1,0 +1,11 @@
+diff -ur smplayer-17.3.0.orig/src/playlist.cpp smplayer-17.3.0/src/playlist.cpp
+--- smplayer-17.3.0.orig/src/playlist.cpp	2017-04-01 14:14:14.917172936 +0200
++++ smplayer-17.3.0/src/playlist.cpp	2017-04-01 14:18:03.847400811 +0200
+@@ -46,6 +46,7 @@
+ #include <QDomDocument>
+ #include <QDesktopServices>
+ #include <QDebug>
++#include <QClipboard>
+ 
+ #if QT_VERSION >= 0x050000
+ #include "myscroller.h"
