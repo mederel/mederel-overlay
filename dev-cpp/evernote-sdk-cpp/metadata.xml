@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>mederel@gmail.com</email>
+  </maintainer>
+  <longdescription lang="en">
+    The C++ SDK provided by Evernote to connect the
+	Evernote API that gives access to the notes and
+	the Evernote storage space of a user.	
+  </longdescription>
+</pkgmetadata>
