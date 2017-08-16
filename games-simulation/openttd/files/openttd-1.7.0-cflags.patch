@@ -1,6 +1,7 @@
---- openttd-1.4.4/config.lib
-+++ openttd-1.4.4/config.lib
-@@ -1450,12 +1450,6 @@
+diff -ru openttd-1.7.0/config.lib openttd-1.7.0-patched/config.lib
+--- openttd-1.7.0/config.lib	2017-04-01 18:33:37.000000000 +0200
++++ openttd-1.7.0-patched/config.lib	2017-05-03 22:38:37.722468738 +0200
+@@ -1479,12 +1479,6 @@
  			CFLAGS="-I/gg/os-include -noixemul -fstrict-aliasing -fexpensive-optimizations -mcpu=604 -fno-inline -mstring -mmultiple $CFLAGS"
  			LDFLAGS="$LDFLAGS -noixemul"
  		fi
@@ -13,7 +14,7 @@
  	else
  		OBJS_SUBDIR="debug"
  
-@@ -1466,14 +1460,6 @@
+@@ -1495,14 +1489,6 @@
  				CFLAGS="$CFLAGS -G0"
  			fi
  		fi
@@ -28,7 +29,7 @@
  	fi
  
  	if [ $enable_debug -le 2 ]; then
-@@ -1498,11 +1484,6 @@
+@@ -1527,11 +1513,6 @@
  		CFLAGS="$CFLAGS -fno-expensive-optimizations"
  	fi
  
