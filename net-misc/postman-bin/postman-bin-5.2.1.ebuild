@@ -4,6 +4,8 @@
 EAPI=6
 MY_PN=${PN/-bin/}
 
+inherit eutils
+
 DESCRIPTION="Supercharge your API workflow"
 HOMEPAGE="https://www.getpostman.com/"
 SRC_URI="https://dl.pstmn.io/download/version/${PV}/linux64 -> ${P}.tar.gz"
@@ -26,4 +28,12 @@ src_install() {
   doexe Postman
 
   dosym /opt/${MY_PN}/Postman /usr/bin/${MY_PN}
+
+  newicon -s 128 ${S}/resources/app/assets/icon.png postman.png
+
+  make_desktop_entry "postman" \
+      "Postman" \
+	  "/usr/share/icons/hicolor/128x128/apps/postman.png" \
+	  "Development" \
+	  "Comment=Postman API IDE"
 }
