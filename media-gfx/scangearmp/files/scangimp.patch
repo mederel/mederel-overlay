@@ -1,0 +1,48 @@
+diff -ru scangearmp-source-2.20-1/scangearmp/src/scangimp.c scangearmp-source-2.20-1-bis/scangearmp/src/scangimp.c
+--- scangearmp-source-2.20-1/scangearmp/src/scangimp.c	2013-03-12 12:50:54.000000000 +0100
++++ scangearmp-source-2.20-1-bis/scangearmp/src/scangimp.c	2018-01-28 08:47:45.665526934 +0100
+@@ -43,7 +43,7 @@
+ //#include <string.h>
+ //#include <gtk/gtk.h>
+ #include <libgimp/gimp.h>
+-#include <libgimp/gimpcompat.h>
++//#include <libgimp/gimpcompat.h>
+ #include <dlfcn.h>
+ 
+ #include "cnmstype.h"
+@@ -101,7 +101,7 @@
+ 			GimpImageType			type,
+ 			gdouble					opacity,
+ 			GimpLayerModeEffects	mode );
+-typedef gboolean ( *FP_gimp_image_add_layer ) (
++typedef gboolean ( *FP_gimp_image_insert_layer ) (
+ 			gint32				image_ID,
+ 			gint32				layer_ID,
+ 			gint				position );
+@@ -136,7 +136,7 @@
+ 	FP_gimp_gtkrc					p_gimp_gtkrc;
+ 	FP_gimp_image_new				p_gimp_image_new;
+ 	FP_gimp_layer_new				p_gimp_layer_new;
+-	FP_gimp_image_add_layer		p_gimp_image_add_layer;
++	FP_gimp_image_insert_layer		p_gimp_image_insert_layer;
+ 	FP_gimp_drawable_get			p_gimp_drawable_get;
+ 	FP_gimp_pixel_rgn_init			p_gimp_pixel_rgn_init;
+ 	FP_gimp_pixel_rgn_set_rect		p_gimp_pixel_rgn_set_rect;
+@@ -184,7 +184,7 @@
+ 	DLSYM_CNMSGIMPAPI( gimp_gtkrc );
+ 	DLSYM_CNMSGIMPAPI( gimp_image_new );
+ 	DLSYM_CNMSGIMPAPI( gimp_layer_new );
+-	DLSYM_CNMSGIMPAPI( gimp_image_add_layer );
++	DLSYM_CNMSGIMPAPI( gimp_image_insert_layer );
+ 	DLSYM_CNMSGIMPAPI( gimp_drawable_get );
+ 	DLSYM_CNMSGIMPAPI( gimp_pixel_rgn_init );
+ 	DLSYM_CNMSGIMPAPI( gimp_pixel_rgn_set_rect );
+@@ -450,7 +450,7 @@
+ 			goto	EXIT_1;
+ 		}
+ 		layer_ID = gimpapi->p_gimp_layer_new( image_ID, "Background", width, height, ( bpp == 24 ) ? GIMP_RGB_IMAGE : GIMP_GRAY_IMAGE, 100, GIMP_NORMAL_MODE );
+-		gimpapi->p_gimp_image_add_layer( image_ID, layer_ID, 0 );
++		gimpapi->p_gimp_image_insert_layer( image_ID, layer_ID, 0 );
+ 		drawable = gimpapi->p_gimp_drawable_get( layer_ID );
+ 		gimpapi->p_gimp_pixel_rgn_init( &region, drawable, 0, 0, drawable->width, drawable->height, TRUE, FALSE );
+ 
