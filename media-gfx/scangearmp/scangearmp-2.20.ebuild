@@ -16,7 +16,7 @@
 #        dependency of app-text/ghostscript-gpl. 
 EAPI="4"
 
-inherit eutils flag-o-matic autotools multilib 
+inherit eutils flag-o-matic autotools multilib linux-mod 
 
 DESCRIPTION="Canon InkJet Scanner Driver and ScanGear MP for Linux (Pixus/Pixma-Series)." 
 HOMEPAGE="http://support-au.canon.com.au/contents/AU/EN/0100303302.html" 
@@ -60,6 +60,8 @@ src_unpack() {
 } 
 
 pkg_setup() { 
+    linux-mod_pkg_setup
+
     if [ -z "$LINGUAS" ]; then    # -z tests to see if the argument is empty 
         ewarn "You didn't specify 'LINGUAS' in your make.conf. Assuming" 
         ewarn "English localisation, i.e. 'LINGUAS=\"en\"'." 
