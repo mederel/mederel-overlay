@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+<email>emile@deweerd.fr</email>
+</maintainer>
+<longdescription lang="en">
+Remeber The Milk command line tool
+</longdescription>
+</pkgmetadata>
